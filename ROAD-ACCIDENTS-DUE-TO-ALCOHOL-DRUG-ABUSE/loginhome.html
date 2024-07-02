@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: relative;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #999999;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #111111;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #353935;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .active {
+            background-color: #0d96a0;
+            color: white;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .topnav a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: #555;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .topnav a:not(:first-child),
+            .dropdown .dropbtn {
+                display: none;
+            }
+
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {
+                position: relative;
+            }
+
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .topnav.responsive .dropdown {
+                float: none;
+            }
+
+            .topnav.responsive .dropdown-content {
+                position: relative;
+            }
+
+            .topnav.responsive .dropdown .dropbtn {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        .card1 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+
+        .title1 {
+            color: grey;
+            font-size: 18px;
+        }
+
+        .button1 {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        .button1:hover,
+        .a:hover {
+            opacity: 0.7;
+        }
+
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        .callout {
+            position: fixed;
+            bottom: 75px;
+            right: 20px;
+            margin-left: 20px;
+            max-width: 250px;
+        }
+
+        .callout-header {
+            padding: 25px 15px;
+            background: #555;
+            font-size: 30px;
+            color: white;
+        }
+
+        .callout-container {
+            padding: 15px;
+            background-color: #ccc;
+            color: black
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: lightgrey;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="#" class="active">Home</a>
+        <a href="news.html">News</a>
+        <a href="data.html">Data</a>
+        <a href="mailto:bhargavyellina@outlook.com">Contact</a>
+        <a href="index.html" style="float: right;">Logout</a>
+        <a href="details.html" style="float: right;" target="_blank">ROAD_ACCIDENTS</a>
+        <a href="Profile.html" style="float: right;" target="_blank">Profile</a>
+        <div class="dropdown">
+            <button class="dropbtn">INFO
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="road.html">Road</a>
+                <a href="police.html">Police</a>
+            </div>
+        </div>
+        <a href="About us.html">About</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./images/slideshow1.jpeg" style="width:100%; height: 500px;">
+            <div class="text">Don't Drink and drive</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./images/slideshow3.webp" style="width:100%; height: 500px;">
+            <div class="text">Consequences of Driking</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./images/slideshow2.jpeg" style="width:100%; height: 500px;">
+            <div class="text">Police filing FIR</div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+    <script>
+        let slideIndex = 0;
+        let timeoutId = null;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+
+        showSlides();
+        function currentSlide(index) {
+            slideIndex = index;
+            showSlides();
+        }
+        function plusSlides(step) {
+
+            if (step < 0) {
+                slideIndex -= 2;
+
+                if (slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                }
+            }
+
+            showSlides();
+        }
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove('active');
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].classList.add('active');
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            timeoutId = setTimeout(showSlides, 2500); // Change image every 2.5 seconds
+        }
+
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules</title>
+    <style screen="media">
+        img {
+            width: 150px;
+            height: 250px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        body {
+            align-content: center;
+            background-image: radial-gradient(rgb(50, 174, 246), white);
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        body {
+            align-content: center;
+            background-image: url('./images/bg2.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container1,
+        .container2 {
+            display: grid;
+            grid-gap: 10px;
+            /* Simply adjust this value !*/
+            grid-template-columns: repeat(3, 1fr);
+            /* OR grid-template-columns: 1fr 1fr 1fr;*/
+            border: white;
+        }
+
+        .container1.div1,
+        .container2.div1 {
+            border: 1px solid rgb(81, 0, 255);
+            height: 400px;
+        }
+
+        .div1 {
+            width: 400px;
+            border: 5px solid rgb(140, 51, 113);
+            padding: 40px;
+            margin: 30px;
+        }
+
+        .img1 {
+            width: 220px;
+            padding: 5px;
+            margin: 10px;
+            height: 220px;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(5, 132, 154);
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: black;
+        }
+
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 240px;
+        }
+
+        /* The popup chat - hidden by default */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width textarea */
+        .form-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+
+        /* When the textarea gets focus, do something */
+        .form-container textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/send button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fcfcfc;
+            font-family: sans-serif;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            padding-top: 40px;
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: left;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<center>
+    <div class="container1">
+        <div class="div1">
+            It is important to think about your own safety,
+            just as you would consider the safety of others on
+            the road. You should wear a seatbelt while driving
+            to protect yourself from crashing into the
+            windshield, in the event of a collision. It is
+            also advisable to get all passengers strapped in,
+            even at the backseat.
+            <img class="img1" src="./images/safety1.jpg">
+        </div>
+
+        <div class="div1">
+            In spite of repeated reminders though road safety
+            advertisements and hoardings, this is one safety
+            guideline that is often overlooked. Driving at a
+            higher speed than the prescribed limit can help you
+            save time during the journey, but it adds to the risk
+            of an accident.
+            <img class="img1" src="./images/safety2.jpg">
+        </div>
+
+        <div class="div1">
+            Following the rules of the road provide our experience. Thus, it assists in avoiding accidents. Another
+            important
+            cause to follow traffic rules is that we can protect several other lives too by our responsible driving.
+            <img class="img1" src="./images/safety6.jpg">
+        </div>
+    </div><br><br>
+    <div class="container2">
+        <div class="div1">
+            It is important to maintain a safe distance with the
+            vehicle in front, so that in case you need to apply
+            sudden brakes, you are protected from personal injuries
+            and your car is safe from damage.
+            <img class="img1" src="./images/safety3.jpg">
+        </div>
+        <div class="div1">
+            It is proven that alcohol impairs the reaction time of
+            the human body. So even if you are feeling fine after
+            a drink, you should refrain from driving as your body
+            is not capable of doing so. You can always request a
+            friend to drive you home or call a taxi instead
+            <img class="img1" src="./images/safety4.jpg">
+        </div>
+        <div class="div1">
+            On the phone while driving is a punishable crime in
+            India. If you get an emergency call on your phone, you
+            need to pull over to the side of the road and complete
+            the conversation before you resume driving. Other
+            distractions like loud music and attention-demanding
+            kids or pets should also be handled in a way that it
+            does not interrupt a safe journey.
+            <img class="img1" src="./images/safety5.jpg">
+        </div>
+    </div>
+    <div>
+        <video src="./images/drunkvideo.mp4" autoplay muted loop></video>
+    </div>
+    <div class="callout">
+        <div class="callout-header">Emergency Numbers</div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        <div class="callout-container">
+            Dial 100 in case of emergency<br>
+            24/7 available<br>
+            Safety First<br>
+            Drive safe
+        </div>
+    </div>
+    <button class="open-button" onclick="openForm()">Chat</button>
+
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        // When the user scrolls the page, execute myFunction 
+        window.onscroll = function () { myFunction() };
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
+</center>
+<footer>
+    <div class="footer-content">
+        <h3>Road Accidents</h3>
+        <p>Road accidents are a major cause of injury and death worldwide. They can occur due to a variety of factors,
+            including reckless or negligent driving, alcohol or drug impairment, distracted driving, and poor road
+            conditions. Road accidents can have serious consequences for those involved, including physical injury,
+            property damage, and financial burdens. It is important for all road users to take precautions and practice
+            safe driving behaviors to reduce the risk of accidents.</p>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright reserved to Government&copy; &nbsp;<a href="loginhome.html">HOME</a></p>
+
+    </div>
+    </div>
+</footer>
+
+</html>

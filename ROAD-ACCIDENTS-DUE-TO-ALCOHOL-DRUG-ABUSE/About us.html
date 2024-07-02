@@ -1,0 +1,197 @@
+<body>
+
+  <div class="abc">
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/tony.jpg">
+        </div> <br> <br>
+        <div class=content>
+          <h1>RAGAVACHARI sir</h1> <br>
+          <P>Team Leader</P> <br>
+          <p>Ideally a high-ranking member of management. He is the visible champion of the project with the
+            management team and is the ultimate decision-maker, with final approval on all phases,</p>
+        </div>
+      </div>
+    </div>
+
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/thor.jpg">
+        </div> <br> <br>
+        <div class=content>
+          <h1>BHARGAV</h1> <br>
+          <P>Project Team Member</P> <br>
+          <p>Makes sure team has clear objectives and members are engaged</p>
+          <P></P>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/tom.jpg">
+        </div><br> <br>
+        <div class=content>
+          <h1>PRAVEEN</h1> <br>
+          <P>Project Team Member</P> <br>
+          <p>Questions effectiveness and drives for results</p>
+          <P></P>
+        </div>
+      </div>
+    </div>
+
+
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/america.jpg">
+        </div><br> <br>
+        <div class=content>
+          <h1>MEGHANA</h1> <br>
+          <P>Project Team Member</P> <br>
+          <p>Encourages progress and takes on practical jobs</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/black.jpg">
+        </div><br> <br>
+        <div class=content>
+          <h1>HASANTHI</h1> <br>
+          <P>Project Team Member</P> <br>
+          <p>Eroduces ideas and thinks through those proposed by others</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class=container>
+      <div class=card>
+        <div class=image>
+          <img src="./images/scarlet.jpg">
+        </div><br> <br>
+        <div class=content>
+          <h1>KUSUMA</h1> <br>
+          <P>Project Team Member</P> <br>
+          <p>Working with users to establish and meet business needs</p>
+          <P></P>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<style>
+  .abc {
+    display: grid;
+    grid-gap: 10px;
+    /* Simply adjust this value !*/
+    grid-template-columns: repeat(3, 1fr);
+    /* OR grid-template-columns: 1fr 1fr 1fr;*/
+    border: white;
+  }
+
+  .abc.div {
+    border: 1px solid rgb(83, 153, 245);
+    height: 400px;
+    width: 300px;
+    border: 15px solid rgb(81, 203, 237);
+    padding: 40px;
+    margin: 30px;
+  }
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./images/abtusbg.jpeg');
+    background-size: cover;
+    min-height: 800px;
+  }
+
+  .container {
+    position: relative;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: warp;
+    padding: 30px;
+  }
+
+  .container .card {
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background-image: radial-gradient(white, rgb(85, 86, 83));
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 15px;
+  }
+
+  .container .card:hover {
+    height: 320px;
+  }
+
+
+  .container .card .image {
+    position: relative;
+    width: 250px;
+    height: 100px;
+
+    top: -40%;
+    left: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .container .card .image img {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+
+  .container .card .content {
+    position: relative;
+    top: -140px;
+    padding: 10px 15px;
+    color: #111;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+
+  }
+
+  .container .card:hover .content {
+    margin-top: 30px;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+
+  }
+</style>

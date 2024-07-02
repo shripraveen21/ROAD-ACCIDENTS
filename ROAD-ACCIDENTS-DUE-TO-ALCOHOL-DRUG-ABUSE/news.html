@@ -1,0 +1,731 @@
+<style screen="media">
+    body {
+        font-family: 'Droid Serif', serif;
+        font-size: 14px;
+        color: #2f2f2f;
+        background-color: #f9f7f1;
+    }
+
+    header {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-size: 80px;
+        text-transform: uppercase;
+        display: inline-block;
+        line-height: 72px;
+        margin-bottom: 20px;
+
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .head {
+        text-align: center;
+        position: relative;
+
+
+    }
+
+    .subhead {
+        text-transform: uppercase;
+        border-bottom: 2px solid #2f2f2f;
+        border-top: 2px solid #2f2f2f;
+        padding: 12px 0 12px 0;
+
+    }
+
+    .weatherforcastbox {
+        position: relative;
+        width: 12%;
+        left: 10px;
+        border: 3px double #2f2f2f;
+        padding: 10px 15px 10px 15px;
+        line-height: 20px;
+        display: inline-block;
+        margin: 0 50px 20px -360px;
+    }
+
+    .content {
+        font-size: 0;
+        line-height: 0;
+        word-spacing: -.31em;
+        display: inline-block;
+        margin: 30px 2% 0 2%;
+    }
+
+
+    .collumn {
+        font-size: 14px;
+        line-height: 20px;
+        width: 20%;
+        display: inline-block;
+        padding: 0 1% 0 1%;
+        vertical-align: top;
+        margin-bottom: 50px;
+        transition: all .7s;
+    }
+
+    .collumn+.collumn {
+        border-left: 1px solid #2f2f2f;
+    }
+
+    .collumn .headline {
+        text-align: center;
+        line-height: normal;
+        font-family: 'Playfair Display', serif;
+        display: block;
+        margin: 0 auto;
+
+
+    }
+
+    .collumn .headline.hl1 {
+        font-weight: 700;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 10px 0 10px 0;
+
+    }
+
+    .collumn .headline.hl2 {
+        font-weight: 400;
+        font-style: italic;
+        font-size: 24px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl2:before {
+        border-top: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 7px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .collumn .headline.hl2:after {
+        border-bottom: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 13px;
+        display: block;
+        margin: 0 auto;
+
+    }
+
+    .collumn .headline.hl3 {
+        font-weight: 400;
+        font-style: italic;
+        font-size: 36px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl4 {
+        font-weight: 700;
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl4:before {
+        border-top: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 7px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .collumn .headline.hl4:after {
+        border-bottom: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 10px;
+        display: block;
+        margin: 0 auto;
+
+    }
+
+    .collumn .headline.hl5 {
+        font-weight: 400;
+        font-size: 42px;
+        text-transform: uppercase;
+        font-style: italic;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl6 {
+        font-weight: 400;
+        font-size: 18px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl6:before {
+        border-top: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 7px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .collumn .headline.hl6:after {
+        border-bottom: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 10px;
+        display: block;
+        margin: 0 auto;
+
+    }
+
+    .collumn .headline.hl7 {
+        font-weight: 700;
+        font-size: 12px;
+        box-sizing: border-box;
+        display: block;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl8 {
+        font-weight: 700;
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl9 {
+        font-weight: 700;
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .headline.hl10 {
+        font-weight: 700;
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 0;
+    }
+
+    .collumn .citation {
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        line-height: 44px;
+        /*font-style: italic;*/
+        text-align: center;
+        font-weight: 400;
+        display: block;
+        margin: 40px 0 40px 0;
+        font-feature-settings: "liga", "dlig";
+
+    }
+
+    .collumn .citation:before {
+        border-top: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 16px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .collumn .citation:after {
+        border-bottom: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        height: 16px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .collumn .figure {
+        margin: 0 0 20px;
+    }
+
+    .collumn .figcaption {
+        font-style: italic;
+        font-size: 12px;
+    }
+
+    .media {
+        -webkit-filter: sepia(80%) contrast(1) opacity(0.8);
+        filter: sepia(80%) grayscale(1) contrast(1) opacity(0.8);
+        mix-blend-mode: multiply;
+        width: 100%;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #353935;
+        margin-top: -10px;
+        margin-left: -10px;
+        width: 100%;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .active {
+        background-color: #0d96a0;
+        color: white;
+    }
+
+    .topnav .icon {
+        display: none;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .topnav a:hover,
+    .dropdown:hover .dropbtn {
+        background-color: #555;
+        color: white;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+
+        .topnav a:not(:first-child),
+        .dropdown .dropbtn {
+            display: none;
+        }
+
+        .topnav a.icon {
+            float: right;
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .topnav.responsive {
+            position: relative;
+        }
+
+        .topnav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        .topnav.responsive .dropdown {
+            float: none;
+        }
+
+        .topnav.responsive .dropdown-content {
+            position: relative;
+        }
+
+        .topnav.responsive .dropdown .dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    /*________________________________________________________________________________________________________________________________*/
+    /*MEDIAQUERIES*/
+    @media only all and (max-width: 1300px) {
+        .weatherforcastbox {
+            display: none;
+        }
+
+    }
+
+    @media only all and (max-width: 1200px) {
+        .collumn {
+            width: 31%;
+        }
+
+    }
+
+    @media only all and (max-width: 900px) {
+        .collumn {
+            width: 47%;
+        }
+
+    }
+
+    @media only all and (max-width: 600px) {
+        .collumn {
+            width: 100%;
+        }
+
+        .collumn+.collumn {
+            border-left: none;
+            border-bottom: 1px solid #2f2f2f;
+        }
+
+        header {
+            max-width: 320px;
+            font-size: 60px;
+            line-height: 54px;
+            overflow: hidden;
+        }
+
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #111;
+        height: auto;
+        width: 100%;
+
+        padding-top: 40px;
+        color: #fff;
+    }
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content h3 {
+        font-size: 2.1rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+
+    .footer-content p {
+        max-width: 500px;
+        margin: 10px auto;
+        line-height: 28px;
+        font-size: 14px;
+        color: #cacdd2;
+    }
+
+    .socials {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+
+    .socials li {
+        margin: 0 10px;
+    }
+
+    .socials a {
+        text-decoration: none;
+        color: #fff;
+        border: 1.1px solid white;
+        padding: 5px;
+
+        border-radius: 50%;
+
+    }
+
+    .socials a i {
+        font-size: 1.1rem;
+        width: 20px;
+
+
+        transition: color .4s ease;
+
+    }
+
+    .socials a:hover i {
+        color: aqua;
+    }
+
+    .footer-bottom {
+        background: #000;
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        float: left;
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+
+    .footer-bottom p a {
+        color: #44bae8;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .footer-bottom span {
+        text-transform: uppercase;
+        opacity: .4;
+        font-weight: 200;
+    }
+
+    .footer-menu {
+        float: right;
+
+    }
+
+    .footer-menu ul {
+        display: flex;
+    }
+
+    .footer-menu ul li {
+        padding-right: 10px;
+        display: block;
+    }
+
+    .footer-menu ul li a {
+        color: #cfd2d6;
+        text-decoration: none;
+    }
+
+    .footer-menu ul li a:hover {
+        color: #27bcda;
+    }
+
+    @media (max-width:500px) {
+        .footer-menu ul {
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
+        rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/newspaper.css">
+    <title>Newspaper Style Design Experiment</title>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="news.html">News</a>
+        <a href="data.html">Data</a>
+        <a href="mailto:bhargavyellina@outlook.com">Contact</a>
+        <a href="LOGIN.html" style="float: right;">Login</a>
+        <div class="dropdown">
+            <button class="dropbtn">INFO
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="road.html">Road</a>
+                <a href="police.html">Police</a>
+            </div>
+        </div>
+        <a href="About us.html">About</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <br>
+    <div class="head">
+        <div class="headerobjectswrapper">
+            <div class="weatherforcastbox"><span style="font-style: italic;">Weatherforcast for the next 24 hours:
+                    Plenty of Sunshine</span><br><span>Wind: 7km/h SSE; Ther: 21°C; Hum: 82%</span></div>
+            <header>Hindustan Times</header>
+        </div>
+
+        <div class="subhead">Times, MA - Monday December 20,2022 - Seven Pages</div>
+    </div>
+    <div class="content">
+        <div class="collumns">
+            <div class="collumn">
+                <div class="head"><span class="headline hl3">More than half of people involved in road accidents had
+                        drugs or alcohol in their system, study says</span>
+                    <p><span class="headline hl4">by Sharmaji</span></p>
+                </div>
+                Every day in the US, 29 people die in car crashes that involve an alcohol-impaired driver, according to
+                the US Centers for Disease Control and Prevention and it's unclear how many more are killed in accidents
+                involving drivers under the influence of drugs.However, the researchers of the new study sought to
+                expand what's known about road safety by looking beyond drivers. Their study, published this week by the
+                US National Highway Traffic Safety Administration, looked at information on passengers, bikers, electric
+                scooter riders and pedestrians who were involved in accidents, as well as drivers.About 11% of people
+                tested positive for some form of stimulant, like cocaine or methamphetamines, and 9% had opioids in
+                their system.In 32% of the fatal accidents and 18% of the ones with serious injuries, there were two or
+                more drugs in the system of someone involved. </p>
+            </div>
+
+            <div class="collumn">
+                <div class="head"><span class="headline hl5">Indian Man Fined Rs 5.5 Lakhs For Drunk Driving</span>
+                    <p><span class="headline hl6">The cases seemed to grow</span></p>
+                </div>
+                The penalty for drunk-driving and driving under the influence includes imprisonment and a possible fine
+                of at least 20,000 dirhams, including confiscation of the vehicle for 60 days.</p>
+                <figure class="figure">
+                    <img class="media" src="./images/news dubai.webp" alt="">
+                    <figcaption class="figcaption">Cars driving on a highway in Dubai. (AFP File Photo)</figcaption>
+                </figure>
+
+                <p>A 39 year-old Indian man has been fined 25,000 dirhams (Rs 5,56,672) for drunken-driving and
+                    absconding from the accident scene after crashing his vehicle into a car in Dubai. The man was
+                    reportedly driving through a neighbourhood in Bur Dubai when he lost control of the car and swerved
+                    into another vehicle that was parked on the right side of the road.</p>
+
+                <p>The incident happened on August 18 and even though the man’s name was withheld in the report, he was
+                    arrested within a few hours by the police after cameras identified the car number plate. Later, he
+                    confessed to the police that he was driving his car under the influence of alcohol, following which
+                    he spent two days in custody before being released on bail.</p>
+
+            </div>
+            <div class="collumn">
+                <div class="head"><span class="headline hl1">Road safety awareness campaign organised</span>
+                    <p><span class="headline hl2">Always remember; drive slower to live longer.</span></p>
+                </div>TAWANG 13 Dec: The Tawang district transport office, in collaboration with the Tawang police and
+                the All Monpa Students' Union, organised a road safety awareness campaign at Old Market here on Tuesday.
+
+                </p>
+                <figure class="figure">
+                    <img class="media" src="./images/Road-safety-awareness.webp" alt="">
+                    <figcaption class="figcaption">"This time, let go your conscious self and act on instinct."
+                    </figcaption>
+                </figure>
+                <p>Stating that the awareness programme should not be just a one-day affair, Gombu called for “larger
+                    public participation in such awareness programmes,” and appealed to the people to “disseminate the
+                    information of the campaign to their colleagues and friends.”
+            </div>
+            <div class="collumn">
+                <div class="head"><span class="headline hl3">Drunk Mahindra Thar driver rams into several cars</span>
+                    <p><span class="headline hl4">A thousand of wounds and hundred of lives</span></p>
+                </div>
+                <p>In a recent disturbing example of a hit-and-run, a Mahindra Thar owner was arrested by Patiala police
+                    for allegedly hitting other vehicles on the roads of Patiala. The Thar driver was said to be under
+                    the influence of alcohol, though the reason behind such action by him is still unknown. A video
+                    showing the Mahindra Thar driver ramming into parked vehicles on the roadside has gone viral on
+                    social media platforms.However, despite this, the Mahindra Thar driver refused to stop and in an
+                    attempt to flee from the spot, he started driving the SUV even more rashly. However, after several
+                    attempts, the locals at the spot managed to stop the Thar and nab the driver along with two other
+                    youths accompanying him in the Thar. All three men, identified as Amit, Parminder and Deepinder, are
+                    aged under 25 and were said to be under the influence of alcohol. After confronting them, the locals
+                    handed all three of them to the Patiala police.
+                </p>
+                <figure class="figure">
+                    <img class="media" src="./images/drunk-mahindra-thar-driver.jpeg" alt="">
+                    <figcaption class="figcaption">Glimpse of Driver and damaged cars(Patiala)</figcaption>
+                </figure>
+            </div>
+            <div class="collumn">
+                <div class="head"><span class="headline hl1">Drink and Drug Drivig 2022 </span>
+                    <p><span class="headline hl4">by FRANZ KAFKA</span></p>
+                </div>
+                <p>Since the launch of the campaign officers in North Yorkshire have been out patrolling the county in
+                    marked and unmarked vehicles. A specialist operation was also set up on the A66 corridor. Officers
+                    from North Yorkshire Police partnered with officers from Cumbria Police, Durham Police and the
+                    Driver and Vehicle Standards Agency (DVSA) to target commercial drivers who use drink or drugs. A
+                    number of drivers were dealt with for motoring offences but thankfully all drivers were negative for
+                    drink or drugs. </p>
+
+                <figure class="figure">
+                    <img class="media" src="./images/for-press-release-1.png" alt="">
+                    <figcaption class="figcaption">(Joint operation with Cumbria Police, Durham Police and the Driver
+                        and Vehicle Standards Agency - DVSA)</figcaption>
+                </figure>
+                <p>It's not just about having a drink or taking drugs and getting straight into the car – you can also
+                    be over the limit the morning after. As part of the campaign officers have also been conducting
+                    static checks early in the morning.The campaign this year focuses on people calling out behaviour.
+                    Members of the public are being asked to “save a life and call it in.” If you suspect that a driver
+                    is behind the wheel when under the influence of drink or drugs, please call 999. </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <h3>Road Accidents</h3>
+            <p>Road accidents are a major cause of injury and death worldwide. They can occur due to a variety of
+                factors,
+                including reckless or negligent driving, alcohol or drug impairment, distracted driving, and poor road
+                conditions. Road accidents can have serious consequences for those involved, including physical injury,
+                property damage, and financial burdens. It is important for all road users to take precautions and
+                practice
+                safe driving behaviors to reduce the risk of accidents.</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright reserved to Government&copy; &nbsp;<a href="index.html">HOME</a></p>
+
+        </div>
+        </div>
+    </footer>
+</body>
+
+</html>
